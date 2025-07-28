@@ -28,7 +28,15 @@ class Record:
         new_phone = Phone(phone)
         self.phones.append(new_phone)
 
+    def remove_phone(self, phone: str):
+        for p in self.phones:
+            if p.value == phone:
+                self.phones.remove(p)
+                return f"Phone {phone} removed."
+        return f"Phone {phone} not found."
     
 
 class AddressBook(UserDict):
     pass
+
+
