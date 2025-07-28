@@ -24,5 +24,11 @@ class Record:
     def __str__(self):
         return f"Contact name: {self.name.value}, phones: {';'.join(p.value for p in self.phones)}"
     
+    def add_phone(self, phone):
+        new_phone = Phone(phone)
+        self.phones.append(new_phone)
+
+    
+
 class AddressBook(UserDict):
     pass
