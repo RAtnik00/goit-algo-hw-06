@@ -45,8 +45,4 @@ class Record:
 class AddressBook(UserDict):
     pass
 
-r = Record("John")
-r.add_phone("1234567890")
-print(r.edit_phone("1234567890", "1112223333"))  # має змінити
-print(r.edit_phone("9999999999", "0000000000"))  # має кинути ValueError
 
