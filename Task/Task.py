@@ -41,8 +41,28 @@ class Record:
                 self.phones[i] = Phone(new_phone)
                 return f"Phone {old_phone} changed to {new_phone}."
         return f"Phone {old_phone} not found."
+    
+    def find_phone(self, phone: str):
+        for p in self.phones:
+            if p.value == phone:
+                return p
+        return None
 
 class AddressBook(UserDict):
-    pass
+    def add_record(self, record: Record):
+        self.data[record.name.value] = record
+
+    def find(self, name: str):
+        return self.data.get(name, None)
+    
+    def delete(self, name: str):
+        if name in self.data:
+            del self.data[name]
+            return f"Contact {name} deleted."
+        return f"Contact {name} not found."
+    
+    def __str__(self):
+        return "\n".join(str(record) for record in self.data.values())
+
 
 
