@@ -35,8 +35,18 @@ class Record:
                 return f"Phone {phone} removed."
         return f"Phone {phone} not found."
     
+    def edit_phone(self, old_phone: str, new_phone: str):
+        for i, p in enumerate(self.phones):
+            if p.value == old_phone:
+                self.phones[i] = Phone(new_phone)
+                return f"Phone {old_phone} changed to {new_phone}."
+        return f"Phone {old_phone} not found."
 
 class AddressBook(UserDict):
     pass
 
+r = Record("John")
+r.add_phone("1234567890")
+print(r.edit_phone("1234567890", "1112223333"))  # має змінити
+print(r.edit_phone("9999999999", "0000000000"))  # має кинути ValueError
 
