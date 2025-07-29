@@ -39,8 +39,8 @@ class Record:
     def edit_phone(self, old_phone: str, new_phone: str):
         if not self.find_phone(old_phone):
             raise ValueError("Old phone number not found.")
-        self.remove_phone(old_phone)
         self.add_phone(new_phone)
+        self.remove_phone(old_phone)
 
     
     def find_phone(self, phone: str):
@@ -65,6 +65,7 @@ class AddressBook(UserDict):
     
     def __str__(self):
         return "\n".join(str(record) for record in self.data.values())
+
 
 
 
